@@ -1,4 +1,5 @@
 
+import './main.html';
 function onlyNum(evt) { 
 	var charCode = evt.which; 
 	if (charCode < 48 || charCode > 57) { 
@@ -18,14 +19,14 @@ function onlyAB(evt){
 function msg(){
 	var string = "Ваши данные приняты"; 
 	var flag = false;
-	var poleB = document.getElementById("poleBukv").value;
-	var poleC = document.getElementById("poleCisel").value;
-	if (poleB.length === 2 && poleC.length === 7) {
+	var lettersField = document.getElementById("field_of_letters").value;
+	var numbersField = document.getElementById("field_of_numbers").value;
+	if (lettersField.length === 2 && numbersField.length === 7) {
 		flag = true;
 	}
 	if (flag) {
-		document.getElementById("poleBukv").value = "";
-		document.getElementById("poleCisel").value = "";
+		document.getElementById("field_of_letters").value = "";
+		document.getElementById("field_of_numbers").value = "";
 	 	alert(string);
 	 }
 }
