@@ -1,0 +1,30 @@
+body{
+	background: #C8F3CC;
+	line-height: 0.2;
+}
+.forseries{
+    margin-top: 200px;
+    font-size: 22px;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 0 10px;
+    text-shadow: 1px 1px 3px #000000;
+}
+.fornumber{
+	margin-top: 0px; 
+    font-size: 22px;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 0 10px;
+    text-shadow: 1px 1px 3px #000000;
+}
+.forbutton{
+	padding: 0 10px; 
+	margin-left: 45%; 
+	margin-right: 45%;
+	font-size: 18px;
+	font-weight: bold;	
+	color: #2E4228;
+	width:120px; 
+	height: 45px;
+}

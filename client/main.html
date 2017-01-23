@@ -1,0 +1,19 @@
+<head>
+  <title>wikilink_project</title>
+<meta charset="utf-8"> 
+<link rel="stylesheet" href="main.css">
+</head> 
+<body>
+<script src="main.js"></script>
+<form action="#"> 
+  <p class="forseries" > 
+    <label for="series" style="padding-top:8px; font-size: 25.7px">Серия паспорта:</label> 
+    <input id="poleBukv" autocomplete="off" minlength="2" maxlength="2" style="width: 200px; height: 35px; text-transform: uppercase;" type="text" placeholder="AB" onkeypress="return onlyAB(event)"  autofocus required>
+    </p>
+  <p class="fornumber">
+    <label for="number" style="padding-top:8px; font-size: 25px">Номер паспорта:</label> 
+    <input id= "poleCisel" autocomplete="off" minlength="7" maxlength="7" style="width: 200px; height: 35px;" type="text" placeholder="1234567"onkeypress="return onlyNum(event)" required>
+    </p>
+  <button id="BUTTON" class="forbutton" onclick="msg()">Отправить</button>
+</form> 
+</body> 
