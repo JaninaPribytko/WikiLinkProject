@@ -1,5 +1,5 @@
 {
-  "name": "wikilink_project",
+  "name": "test",
   "private": true,
   "scripts": {
     "start": "meteor run"
