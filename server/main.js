@@ -1,5 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 
-Meteor.startup(() => {
-  // code to run on server at startup
+Meteor.methods({
+  checkData: function (fseries, fnumber) {
+    if (fseries.length == 2 && fnumber.length == 7)
+      return 'Правильно'
+    else
+      return 'Не правильно';
+  }
 });

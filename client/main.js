@@ -1,15 +1,21 @@
-﻿import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
 
 Template.BUTTON.onCreated(function helloOnCreated() {
-  this.counter = new ReactiveVar(true);
+  this.valid = new ReactiveVar();
+});
+
+Template.BUTTON.helpers({
+  valid() {
+    	return Template.instance().valid.get();
+  },
 });
 
 Template.SERIES.events({
-  'keypress input': function(event){
+  'keypress input'(event){
     var charCode = event.which;
     if ((charCode < 65 || charCode > 90) && (charCode <97 || charCode > 122)) { 
       return false; 
@@ -19,7 +25,7 @@ Template.SERIES.events({
 });
 
 Template.NUMBER.events({
-  'keypress input': function(event){
+  'keypress input'(event){
     var charCode = event.which;
     if (charCode < 48 || charCode > 57) { 
       return false; 
@@ -29,11 +35,11 @@ Template.NUMBER.events({
 });
 
 Template.BUTTON.events({
-  'click button'(event, instance) {
-  var flag = false;
-	var lettersField = document.getElementById("field_of_letters").value;
-	var numbersField = document.getElementById("field_of_numbers").value;
-	if (lettersField.length === 2 && numbersField.length === 7) {
-		alert("Ваши данные приняты c:");
-}	}
+  'click button': function(event,instance) {
+     event.preventDefault();
+     instance.valid.set('Подождите...');
+     Meteor.call('checkData', document.getElementById("field_of_letters").value, document.getElementById("field_of_numbers").value, function (error, result) { instance.valid.set(result) });
+     	document.getElementById("field_of_numbers").value = "";
+     	document.getElementById("field_of_letters").value = ""; 
+  },
 });
