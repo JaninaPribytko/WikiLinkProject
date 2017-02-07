@@ -8,11 +8,6 @@ Template.BUTTON.onCreated(function helloOnCreated() {
   this.valid = new ReactiveVar();
 });
 
-Template.BUTTON.helpers({
-  valid() {
-    	return Template.instance().valid.get();
-  },
-});
 
 Template.SERIES.events({
   'keypress input'(event){
