@@ -36,7 +36,6 @@ Template.NUMBER.events({
 
 Template.BUTTON.events({ 
   'click button'(event, instance) { 
-    var flag = false; 
     var lettersField = document.getElementById("field_of_letters").value; 
     var numbersField = document.getElementById("field_of_numbers").value; 
     if (lettersField.length === 2 && numbersField.length === 7) { 
