@@ -34,12 +34,19 @@ Template.NUMBER.events({
   }
 });
 
-Template.BUTTON.events({
-  'click button': function(event,instance) {
-     event.preventDefault();
-     instance.valid.set('Подождите...');
-     Meteor.call('checkData', document.getElementById("field_of_letters").value, document.getElementById("field_of_numbers").value, function (error, result) { instance.valid.set(result) });
-     	document.getElementById("field_of_numbers").value = "";
-     	document.getElementById("field_of_letters").value = ""; 
-  },
+Template.BUTTON.events({ 
+  'click button'(event, instance) { 
+    var flag = false; 
+    var lettersField = document.getElementById("field_of_letters").value; 
+    var numbersField = document.getElementById("field_of_numbers").value; 
+    if (lettersField.length === 2 && numbersField.length === 7) { 
+      event.preventDefault(); 
+    Meteor.call('checkData', lettersField.toUpperCase()+numbersField, function (error, result) { 
+    if(result) 
+      alert("Данные правильные"); 
+    else 
+      alert("Данные неверные")}); 
+    document.getElementById("field_of_numbers").value = ""; 
+    document.getElementById("field_of_letters").value = ""; 
+} } 
 });

@@ -1,10 +1,7 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'; 
 
-Meteor.methods({
-  checkData: function (fseries, fnumber) {
-    if (fseries.length == 2 && fnumber.length == 7)
-      return 'Правильно'
-    else
-      return 'Не правильно';
-  }
+Meteor.methods({ 
+checkData: function (fdata) {  
+return (fdata.localeCompare("AB1234567")==0); 
+} 
 });
