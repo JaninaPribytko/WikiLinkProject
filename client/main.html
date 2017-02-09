@@ -6,7 +6,6 @@
 <body>
   <form action="#"> 
   {{> SERIES}}      
-  {{> NUMBER}}
   {{> BUTTON}}
   </form>
 </body>
@@ -18,13 +17,6 @@
 <template name="SERIES">
   <p class="forseries"> 
         <label for="series" style="padding-top:8px; font-size: 25.7px">Серия паспорта:</label> 
-        <input id="field_of_letters" name="fieldOfLetters" autocomplete="off" minlength="2" maxlength="2" style="width: 200px; height: 35px; text-transform: uppercase;" type="text" placeholder="AB" autofocus required>
-      </p>
-</template>
-
-<template name="NUMBER">
-  <p class="fornumber">
-        <label for="number" style="padding-top:8px; font-size: 25px">Номер паспорта:</label> 
-        <input id="field_of_numbers" name="fieldOfNumbers" autocomplete="off" minlength="7" maxlength="7" style="width: 200px; height: 35px;" type="text" placeholder="1234567" required>
+        <input id="field_of_letters" name="fieldOfLetters" autocomplete="off" minlength="9" maxlength="9" style="width: 200px; height: 35px;" type="text" placeholder="AB1234567" autofocus required>
       </p>
 </template>
