@@ -5,8 +5,10 @@
 
 <body>
   <form action="#"> 
-  {{> SERIES}}      
-  {{> BUTTON}}
+  {{> SERIES}}  
+  {{> RESULT}} 
+  {{> BUTTON}}   
+  
   </form>
 </body>
 
@@ -19,4 +21,10 @@
         <label for="series" style="padding-top:8px; font-size: 25.7px">Серия паспорта:</label> 
         <input id="field_of_letters" name="fieldOfLetters" autocomplete="off" minlength="9" maxlength="9" style="width: 200px; height: 35px;" type="text" placeholder="AB1234567" autofocus required>
       </p>
+
 </template>
+<template name="RESULT">
+ <p class="forresult"> 
+ 	<span id="resultLable" style="padding-top:8px; font-size: 20px; color: #000000; display:none; border: 2px solid #FF5353;padding:4px;border-radius:8px;">...</span>
+ 	</p>
+ </template>
