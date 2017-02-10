@@ -24,29 +24,33 @@ Template.BUTTON.events({
   'click button'(event, instance) { 
     var lettersField = document.getElementById("field_of_letters").value; 
     var resultLab = document.getElementById("resultLable"); 
+    var formatLab = document.getElementById("formatLable"); 
     if (lettersField.length === 9){
+    	event.preventDefault(); 
      	if (/\D\D\d\d\d\d\d\d\d/.test(lettersField)){
-     		event.preventDefault(); 
     		Meteor.call('checkData', lettersField.toUpperCase(), function (error, result) { 
     		if(result){
-      			resultLab.innerHTML='Ваши данные приняты';
+      			resultLab.innerHTML='Всё нормуль, ксива - что надо';
       			resultLab.style.border='2px solid #32a32e';
 				resultLab.style.display='inline';
+				formatLab.style.display='none';
 				setTimeout(function(){resultLab.style.display="none";}, 1000);
     		}
     		else {
-      				resultLab.innerHTML='Данные неверные';
+      				resultLab.innerHTML='Паспорт недействителен';
       				resultLab.style.border='2px solid #FF5353';
 					resultLab.style.display='inline';
-				}
+					formatLab.style.display='none';
+					setTimeout(function(){resultLab.style.display="none";}, 1000);
 
+				}
       		}); 
-		} 
-		else{	resultLab.innerHTML='Нeверный формат';
-				resultLab.style.border='2px solid #FF5353';
-				resultLab.style.display='inline';
+      		document.getElementById("field_of_letters").value=""; 
+		}
+		else{	
+				formatLab.style.display='inline';
 			}
-	document.getElementById("field_of_letters").value=""; 
+	
 	}
  }
 });

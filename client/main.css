@@ -1,33 +1,34 @@
 /* CSS declarations go here */
 body{
-	background: #C8F3CC;
+	background: #D8F7DB;
 	line-height: 0.2;
 }
+
+.fortable{
+	margin-top: 200px; 
+}
+
 .forseries{ 
-margin: 15 auto; 
-text-align: center; 
-margin-top: 200px; 
-font-size: 20px; 
-padding: 0 10px; 
-text-shadow: 1px 1px 3px #000000; 
+	font-size: 20px; 
+	text-shadow: 1px 1px 3px #000000; 
 } 
+
 .forresult{ 
-margin: 15 auto; 
-margin-top: 20px;  
-text-align: center; 
-font-size: 30px; 
-padding: 0 10px; 
-text-shadow: 1px 1px 3px #000000; 
+	margin: 15 auto; 
+	margin-top: 20px;  
+	text-align: center; 
+	font-size: 30px; 
+	padding: 0 10px; 
+	text-shadow: 1px 1px 3px #000000; 
 }
 
 .forbutton{
-	padding: 0 10px; 
 	margin-left: 45%; 
 	margin-right: 45%;
 	font-size: 18px;
 	font-weight: bold;	
 	color: #2E4228;
 	width:120px; 
-	height: 45px;
+	height: 40px;
 }
 

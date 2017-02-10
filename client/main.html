@@ -5,10 +5,14 @@
 
 <body>
   <form action="#"> 
-  {{> SERIES}}  
+  <table align="center" class="fortable">
+  	<tr>
+  		<td>{{> SERIES}}</td>
+  		<td>{{> FORMAT}}</td>
+  	</tr>
+  </table>	
   {{> RESULT}} 
-  {{> BUTTON}}   
-  
+  {{> BUTTON}}    
   </form>
 </body>
 
@@ -18,13 +22,19 @@
 
 <template name="SERIES">
   <p class="forseries"> 
-        <label for="series" style="padding-top:8px; font-size: 25.7px">Серия паспорта:</label> 
-        <input id="field_of_letters" name="fieldOfLetters" autocomplete="off" minlength="9" maxlength="9" style="width: 200px; height: 35px;" type="text" placeholder="AB1234567" autofocus required>
+        <label for="series" style="padding-top:8px; font-size: 25.7px">Номер паспорта:</label> 
+        <input id="field_of_letters" name="fieldOfLetters" autocomplete="off" minlength="9" maxlength="9" style="width: 200px; height: 30px;" type="text" placeholder="AB1234567" autofocus required>
       </p>
-
 </template>
+
 <template name="RESULT">
  <p class="forresult"> 
- 	<span id="resultLable" style="padding-top:8px; font-size: 20px; color: #000000; display:none; border: 2px solid #FF5353;padding:4px;border-radius:8px;">...</span>
+ 	<span id="resultLable" style="font-size: 20px; color: #000000; display:none; border: 2px solid #FF5353;padding:4px;border-radius:8px;">...</span>
+ 	</p>
+ </template>
+
+<template name="FORMAT">
+ <p class="forformat"> 
+ 	<span id="formatLable" style="font-size: 16px; background: white; color: #CE0000; display:none; border: 2px solid #FF5353;padding:3px;border-radius:8px;">Неверный формат</span>
  	</p>
  </template>
