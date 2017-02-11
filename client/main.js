@@ -20,37 +20,46 @@ Template.SERIES.events({
   }
 });
 
+
+function enterTheInformation() {
+  var lettersField = document.getElementById("field_of_letters").value; 
+  var resultLab = document.getElementById("resultLabel"); 
+  var formatLab = document.getElementById("formatLabel"); 
+  if (lettersField.length === 9){
+    event.preventDefault(); 
+    if (/\D\D\d\d\d\d\d\d\d/.test(lettersField)){
+      Meteor.call('checkData', lettersField.toUpperCase(), function (error, result) { 
+        if(result){
+          resultLab.innerHTML='Паспорт соответствует образцу';
+          resultLab.style.border='2px solid #32a32e';
+          resultLab.style.display='inline';
+          formatLab.style.visibility='hidden';
+          setTimeout(function(){resultLab.style.display="none";}, 1500);
+        }
+        else {
+          resultLab.innerHTML='Паспорт недействителен';
+          resultLab.style.border='2px solid #FF5353';
+          resultLab.style.display='inline';
+          formatLab.style.visibility='hidden';
+          setTimeout(function(){resultLab.style.display="none";}, 1500);
+        }
+      }); 
+      document.getElementById("field_of_letters").value=""; 
+    }
+    else{ 
+        formatLab.style.visibility='visible';
+    }
+  }
+}
+
 Template.BUTTON.events({ 
   'click button'(event, instance) { 
-    var lettersField = document.getElementById("field_of_letters").value; 
-    var resultLab = document.getElementById("resultLabel"); 
-    var formatLab = document.getElementById("formatLabel"); 
-    if (lettersField.length === 9){
-    	event.preventDefault(); 
-     	if (/\D\D\d\d\d\d\d\d\d/.test(lettersField)){
-    		Meteor.call('checkData', lettersField.toUpperCase(), function (error, result) { 
-    		if(result){
-      			resultLab.innerHTML='Паспорт соответствует образцу';
-      			resultLab.style.border='2px solid #32a32e';
-				resultLab.style.display='inline';
-				formatLab.style.visibility='hidden';
-				setTimeout(function(){resultLab.style.display="none";}, 1500);
-    		}
-    		else {
-      				resultLab.innerHTML='Паспорт недействителен';
-      				resultLab.style.border='2px solid #FF5353';
-					resultLab.style.display='inline';
-					formatLab.style.visibility='hidden';
-					setTimeout(function(){resultLab.style.display="none";}, 1500);
+    enterTheInformation();
+  }
+ });
 
-				}
-      		}); 
-      		document.getElementById("field_of_letters").value=""; 
-		}
-		else{	
-				formatLab.style.visibility='visible';
-			}
-	
-	}
- }
+addEventListener("keydown", function(event){ 
+  if(event.keyCode==13){
+    enterTheInformation();
+  }
 });
