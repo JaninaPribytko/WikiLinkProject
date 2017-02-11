@@ -23,8 +23,8 @@ Template.SERIES.events({
 Template.BUTTON.events({ 
   'click button'(event, instance) { 
     var lettersField = document.getElementById("field_of_letters").value; 
-    var resultLab = document.getElementById("resultLable"); 
-    var formatLab = document.getElementById("formatLable"); 
+    var resultLab = document.getElementById("resultLabel"); 
+    var formatLab = document.getElementById("formatLabel"); 
     if (lettersField.length === 9){
     	event.preventDefault(); 
      	if (/\D\D\d\d\d\d\d\d\d/.test(lettersField)){
