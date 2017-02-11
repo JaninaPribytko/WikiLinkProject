@@ -33,14 +33,14 @@ Template.BUTTON.events({
       			resultLab.innerHTML='Всё нормуль, ксива - что надо';
       			resultLab.style.border='2px solid #32a32e';
 				resultLab.style.display='inline';
-				formatLab.style.display='none';
+				formatLab.style.visibility='hidden';
 				setTimeout(function(){resultLab.style.display="none";}, 1000);
     		}
     		else {
       				resultLab.innerHTML='Паспорт недействителен';
       				resultLab.style.border='2px solid #FF5353';
 					resultLab.style.display='inline';
-					formatLab.style.display='none';
+					formatLab.style.visibility='hidden';
 					setTimeout(function(){resultLab.style.display="none";}, 1000);
 
 				}
@@ -48,7 +48,7 @@ Template.BUTTON.events({
       		document.getElementById("field_of_letters").value=""; 
 		}
 		else{	
-				formatLab.style.display='inline';
+				formatLab.style.visibility='visible';
 			}
 	
 	}
