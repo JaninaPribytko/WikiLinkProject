@@ -30,18 +30,18 @@ Template.BUTTON.events({
      	if (/\D\D\d\d\d\d\d\d\d/.test(lettersField)){
     		Meteor.call('checkData', lettersField.toUpperCase(), function (error, result) { 
     		if(result){
-      			resultLab.innerHTML='Всё нормуль, ксива - что надо';
+      			resultLab.innerHTML='Паспорт соответствует образцу';
       			resultLab.style.border='2px solid #32a32e';
 				resultLab.style.display='inline';
 				formatLab.style.visibility='hidden';
-				setTimeout(function(){resultLab.style.display="none";}, 1000);
+				setTimeout(function(){resultLab.style.display="none";}, 1500);
     		}
     		else {
       				resultLab.innerHTML='Паспорт недействителен';
       				resultLab.style.border='2px solid #FF5353';
 					resultLab.style.display='inline';
 					formatLab.style.visibility='hidden';
-					setTimeout(function(){resultLab.style.display="none";}, 1000);
+					setTimeout(function(){resultLab.style.display="none";}, 1500);
 
 				}
       		}); 
