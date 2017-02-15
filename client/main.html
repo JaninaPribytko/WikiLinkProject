@@ -6,9 +6,28 @@
 <body>
   <form action="#"> 
   <table align="center" class="fortable">
+  <tr>
+  <td>{{> SURNAME_LABEL}}</td>
+      <td>{{> SURNAME}}</td>
+    </tr>
+    <tr>
+    <td>{{> NAME_LABEL}}</td>
+      <td>{{> NAME}}</td>
+    </tr>
+     <tr>
+
+      <td>{{> SECOND_NAME_LABEL}}</td>
+      <td>{{> SECOND_NAME}}</td>
+    </tr>
+     <tr>
+     <td>{{> PRIVATE_NUMBER_LABEL}}</td>
+      <td>{{> PRIVATE_NUMBER}}</td>
+      <td>{{> FORMAT_NUMBER}}</td>
+    </tr>
   	<tr>
+    <td>{{> SERIES_LABEL}}</td>
   		<td>{{> SERIES}}</td>
-  		<td>{{> FORMAT}}</td>
+  		<td>{{> FORMAT_SERIES}}</td>
   	</tr>
   </table>	
   {{> RESULT}} 
@@ -20,12 +39,71 @@
   <button class="forbutton">Отправить</button>
   </template>
 
+
+<template name="SURNAME_LABEL">
+  <p class="forseries"> 
+        <label for="surname" style="font-size: 25.7px">Фамилия: </label> 
+ </p>
+</template>
+
+<template name="NAME_LABEL">
+  <p class="forseries"> 
+        <label for="name" style="font-size: 25.7px">Имя: </label> 
+ </p>
+</template>
+
+<template name="SECOND_NAME_LABEL">
+  <p class="forseries"> 
+        <label for="second_name" style="font-size: 25.7px">Отчество (если есть): </label>
+ </p>
+</template>
+
+<template name="PRIVATE_NUMBER_LABEL">
+  <p class="forseries"> 
+        <label for="private_number" style="font-size: 25.7px">Личный номер: </label> 
+         </p>
+</template>
+
+<template name="SERIES_LABEL">
+  <p class="forseries"> 
+        <label for="series" style="font-size: 25.7px">Номер паспорта: </label> 
+   </p>
+</template>     
+
+
+
+<template name="SURNAME">
+  <p class="forseries"> 
+        <input id="field_of_surname" name="fieldOfSurname" autocomplete="off" minlength="1" maxlength="50" style="width: 200px; height: 26px;" type="text" placeholder="Иванов" autofocus required>
+      </p>
+</template>
+
+<template name="NAME">
+  <p class="forseries"> 
+        <input id="field_of_name" name="fieldOfName" autocomplete="off" minlength="1" maxlength="25" style="width: 200px; height: 26px;" type="text" placeholder="Иван" autofocus required>
+      </p>
+</template>
+
+<template name="SECOND_NAME">
+  <p class="forseries"> 
+        <input id="field_of_second_name" name="fieldOfSecondName" autocomplete="off"  maxlength="25" style="width: 200px; height: 26px;" type="text" placeholder="Иванович" autofocus>
+      </p>
+</template>
+
+<template name="PRIVATE_NUMBER">
+  <p class="forseries"> 
+        <input id="field_of_private_number" name="fieldOfPrivateNumer" autocomplete="off" minlength="14" maxlength="14" style="width: 200px; height: 26px;" type="text" placeholder="1111111A111AB1" autofocus required>
+      </p>
+</template>
+
 <template name="SERIES">
   <p class="forseries"> 
-        <label for="series" style="font-size: 25.7px">Номер паспорта:</label> 
         <input id="field_of_letters" name="fieldOfLetters" autocomplete="off" minlength="9" maxlength="9" style="width: 200px; height: 26px;" type="text" placeholder="AB1234567" autofocus required>
       </p>
 </template>
+
+
+
 
 <template name="RESULT">
  <p class="forresult"> 
@@ -33,8 +111,14 @@
  	</p>
  </template>
 
-<template name="FORMAT">
+<template name="FORMAT_NUMBER">
  <p> 
- 	<span id="formatLabel" style="font-size: 16px; background: white; color: #CE0000; visibility: hidden; border: 2px solid #FF5353;padding:3px;border-radius:8px;">Неверный формат</span>
+ 	<span id="formatLabelForNumber" style="font-size: 16px; background: white; color: #CE0000; visibility: hidden; border: 2px solid #FF5353;padding:3px;border-radius:8px;">Неверный формат</span>
  	</p>
+ </template>
+
+ <template name="FORMAT_SERIES">
+ <p> 
+  <span id="formatLabelForSeries" style="font-size: 16px; background: white; color: #CE0000; visibility: hidden; border: 2px solid #FF5353;padding:3px;border-radius:8px;">Неверный формат</span>
+  </p>
  </template>
