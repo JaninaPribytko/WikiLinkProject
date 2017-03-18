@@ -5,7 +5,7 @@ body{
 }
 
 .fortable{
-	margin-top: 100px; 
+	margin-top: 80px; 
 	text-align: right;
 }
 
@@ -32,3 +32,6 @@ body{
 	height: 40px;
 }
 
+.fordownload{
+	margin-left: 250px;
+}

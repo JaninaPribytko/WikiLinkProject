@@ -1,76 +1,65 @@
 <head>
   <title>test</title>
   <link rel="stylesheet" href="main.css">
+<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 </head>
 
 <body>
   <form action="#"> 
-  <table align="center" class="fortable">
+  <table id="table" align="center" class="fortable">
   <tr>
-  <td>{{> SURNAME_LABEL}}</td>
-      <td>{{> SURNAME}}</td>
-    </tr>
-    <tr>
-    <td>{{> NAME_LABEL}}</td>
+    <td><p class="forseries"> 
+        <label id="surname" style="font-size: 25.7px">Фамилия: </label></p>
+    </td>
+    <td>{{> SURNAME}}</td>
+  </tr>
+  <tr>
+    <td> <p class="forseries"> 
+        <label for="name" style="font-size: 25.7px">Имя: </label></p>
+    </td>
       <td>{{> NAME}}</td>
-    </tr>
-     <tr>
-
-      <td>{{> SECOND_NAME_LABEL}}</td>
-      <td>{{> SECOND_NAME}}</td>
-    </tr>
-     <tr>
-     <td>{{> PRIVATE_NUMBER_LABEL}}</td>
-      <td>{{> PRIVATE_NUMBER}}</td>
-      <td>{{> FORMAT_NUMBER}}</td>
-    </tr>
-  	<tr>
-    <td>{{> SERIES_LABEL}}</td>
-  		<td>{{> SERIES}}</td>
-  		<td>{{> FORMAT_SERIES}}</td>
-  	</tr>
+  </tr>
+  <tr>
+    <td> <p class="forseries"> 
+      <label for="second_name" style="font-size: 25.7px">Отчество (если есть): </label></p>
+    </td>
+    <td>{{> SECOND_NAME}}</td>
+  </tr>
+  <tr>
+    <td><p class="forseries"> 
+      <label for="private_number" style="font-size: 25.7px">Личный номер: </label></p>
+    </td>
+    <td>{{> PRIVATE_NUMBER}}</td>
+    <td>{{> FORMAT_NUMBER}}</td>
+  </tr>
+  <tr>
+    <td><p class="forseries"> 
+      <label for="series" style="font-size: 25.7px">Номер паспорта: </label></p>
+    </td>
+  	<td>{{> SERIES}}</td>
+  	<td>{{> FORMAT_SERIES}}</td>
+  </tr>
   </table>	
+  {{> PARSE}} 
   {{> RESULT}} 
   {{> BUTTON}}    
   </form>
+
 </body>
+
+<template name="PARSE">
+<form class="fordownload" id="form_download" enctype="multipart/form-data" action="picture.js" method="post">
+  <p>  <label style="font-size: 20px; text-shadow: 1px 1px 3px #6B8E23">Вы можете загрузить данные с фотографии:  </label>
+  <input type="file"  id="file" accept="image/jpeg,image/png,image/gif">
+ <button>Получить данные</button>
+    <input type="reset" id="res" value="Отмена"/> </p>
+  <span id="output"></span>
+ </form>
+</template>
 
 <template name="BUTTON">
   <button class="forbutton">Отправить</button>
   </template>
-
-
-<template name="SURNAME_LABEL">
-  <p class="forseries"> 
-        <label for="surname" style="font-size: 25.7px">Фамилия: </label> 
- </p>
-</template>
-
-<template name="NAME_LABEL">
-  <p class="forseries"> 
-        <label for="name" style="font-size: 25.7px">Имя: </label> 
- </p>
-</template>
-
-<template name="SECOND_NAME_LABEL">
-  <p class="forseries"> 
-        <label for="second_name" style="font-size: 25.7px">Отчество (если есть): </label>
- </p>
-</template>
-
-<template name="PRIVATE_NUMBER_LABEL">
-  <p class="forseries"> 
-        <label for="private_number" style="font-size: 25.7px">Личный номер: </label> 
-         </p>
-</template>
-
-<template name="SERIES_LABEL">
-  <p class="forseries"> 
-        <label for="series" style="font-size: 25.7px">Номер паспорта: </label> 
-   </p>
-</template>     
-
-
 
 <template name="SURNAME">
   <p class="forseries"> 
@@ -101,8 +90,6 @@
         <input id="field_of_letters" name="fieldOfLetters" autocomplete="off" minlength="9" maxlength="9" style="width: 200px; height: 26px;" type="text" placeholder="AB1234567" autofocus required>
       </p>
 </template>
-
-
 
 
 <template name="RESULT">

@@ -1,28 +1,28 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-
+//import Tesseract from 'tesseract.js';
 import './main.html';
 
-
 Template.BUTTON.onCreated(function helloOnCreated() {
-  this.valid = new ReactiveVar();
+   this.valid = new ReactiveVar();
 });
 
-
 function simbolsCheckEnglish(){
-     var charCode = event.which;
- if ((charCode < 65 || charCode > 90) && (charCode <97 || charCode > 122) && (charCode < 48 || charCode > 57)) { 
-     return false; 
-    } 
-    return  true; 
+  var charCode = event.which;
+  if ((charCode < 65 || charCode > 90) && (charCode <97 || charCode > 122) && (charCode < 48 || charCode > 57)) { 
+    return false; 
+  } 
+  return  true; 
 }
 
  function simbolsCheckRussian(){
-   var charCode = event.which;
-if ((charCode < 192) && (charCode!=45) && (charCode!=150) && (charCode!=151)) { 
-     return false; 
+  var charCode = event.which;
+  if ((charCode < 192)){
+    if((charCode!=45) && (charCode!=150) && (charCode!=151)) { 
+      return false; 
     } 
-    return  true; 
+  }
+  return  true; 
 }
 
 
@@ -72,17 +72,19 @@ function enterTheInformation() {
 
 Template.SURNAME.events({
   'keypress input'(event){
-   return simbolsCheckRussian();
+  //  var surnameField = document.getElementById("field_of_surname").value;
+    return simbolsCheckRussian();
   }
 });
 Template.NAME.events({
   'keypress input'(event){
+ // var nameField = document.getElementById("field_of_name").value;
    return simbolsCheckRussian();
     }
 });
 Template.SECOND_NAME.events({
   'keypress input'(event){ 
-    return simbolsCheckRussian();
+    return simbolsCheckRussian("");
   }
 });
 
@@ -105,6 +107,7 @@ Template.BUTTON.events({
     enterTheInformation();
   }
  });
+
 
 addEventListener("keydown", function(event){ 
   if(event.keyCode==13){
