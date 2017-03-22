@@ -24,7 +24,7 @@ Template.PARSE.events({
    reset;
   //var form = document.getElementById('form_download');
    //form.
-   span.innerHTML=['<label id="wait" style="font-size: 20px; margin-left: 350px; background: white; color: #CE0000; border: 2px solid #FF5353;padding:3px;">Подождите, идет сканирование данных...</label>'].join(''); 
+   span.innerHTML=['<label id="wait" style="font-size: 20px; margin-left: 300px; background: white; color: #CE0000; border: 2px solid #FF5353;padding:3px;">Подождите, идет сканирование данных...</label>'].join(''); 
     event.preventDefault(); 
   }
  });
@@ -34,7 +34,6 @@ function parse_the_picture(picName) {
             .then(function (res) {
               var string =res.text;
               string=string.substr(string.lastIndexOf('<<<<')+4);
-               console.log(string);
                document.getElementById('wait').innerHTML="Сканирование завершено";
 string.replace(/\s\w*/, "");
   console.log(string);
@@ -48,13 +47,13 @@ if((pos = string.indexOf("BLR"))>-1){
 	number = (string.substring(pos,pos-10).substring(0, (string.substring(pos,pos-10)).length-1));
 	console.log("numder = "+number);
 }else if(((pos = string.indexOf("PB"))>-1)||(pos = string.indexOf("P"))>4){
-	idenNumber = string.substring(pos+3,pos-11);
+	idenNumber = string.substring(pos+2,pos-11);
 	console.log("idenNumber = "+idenNumber);
 	number = string.substring(pos-30,pos-39);
 	console.log("numder = "+number);
 
 }else if((pos = string.indexOf(/\D\D/))==0){
-    idenNumber = string.substring(pos+28,14);
+    idenNumber = string.substr(pos+28,14);
 	console.log("idenNumber = "+idenNumber);
 	number = string.substr(pos, 9);
 	console.log("numder = "+number);
@@ -68,11 +67,11 @@ function reset() {
 	 span.innerHTML="";	
 }      
 
+
 function handleFileSelect(evt) {
     var file = evt.target.files;
     var f = file[0];
     if (!f.type.match('image.*')) {
-        alert("Image only please....");
     }
     var reader = new FileReader();
 
@@ -82,6 +81,7 @@ function handleFileSelect(evt) {
             span= document.createElement('span');
             span.innerHTML = ['<img class="fordownload" title="', escape(theFile.name), '" src="', e.target.result, '" width="150" height="100"/>'].join('');
             document.getElementById('output').insertBefore(span, null);
+
             picName=e.target.result;
             if(span1!=null&&span1.innerHTML!=""){
             	document.getElementById('output').replaceChild(span, span1);
